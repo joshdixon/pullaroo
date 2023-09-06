@@ -1,0 +1,76 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <UserSecretsId>5f8ac156-1205-432c-a06e-193a756fd60a</UserSecretsId>
+        <DockerfileContext>..\..</DockerfileContext>
+        <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="EFCore.NamingConventions" Version="7.0.2" />
+        <PackageReference Include="Eventuous" Version="0.14.0" />
+        <PackageReference Include="Eventuous.Application" Version="0.14.0" />
+        <PackageReference Include="Eventuous.AspNetCore" Version="0.14.0" />
+        <PackageReference Include="Eventuous.AspNetCore.Web" Version="0.14.0" />
+        <PackageReference Include="Eventuous.Diagnostics.OpenTelemetry" Version="0.14.0" />
+        <PackageReference Include="Eventuous.EventStore" Version="0.14.0" />
+        <PackageReference Include="Eventuous.Projections.MongoDB" Version="0.14.0" />
+        <PackageReference Include="FluentValidation" Version="11.5.1" />
+        <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+        <PackageReference Include="MassTransit" Version="8.0.14" />
+        <PackageReference Include="MicroElements.Swashbuckle.FluentValidation" Version="6.0.0-beta.3" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.3" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Orleans.Reminders" Version="7.1.1" />
+        <PackageReference Include="Microsoft.Orleans.Serialization.SystemTextJson" Version="7.1.2" />
+        <PackageReference Include="Microsoft.Orleans.Server" Version="7.1.1" />
+        <PackageReference Include="Microsoft.Orleans.Streaming" Version="7.1.1" />
+        <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+        <PackageReference Include="MongoDB.Driver" Version="2.19.1" />
+        <PackageReference Include="MongoDB.Driver.Core.Extensions.OpenTelemetry" Version="1.0.0" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />
+        <PackageReference Include="OneOf" Version="3.0.255" />
+        <PackageReference Include="Orleans.EventSourcing.EventStore" Version="7.1.2" />
+        <PackageReference Include="Orleans.FluentResults" Version="7.1.5" />
+        <PackageReference Include="Orleans.Streaming.EventStore" Version="7.1.1" />
+        <PackageReference Include="OrleansDashboard" Version="7.2.0" />
+        <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.4.0-rc.3" />
+        <PackageReference Include="OpenTelemetry.Exporter.Jaeger" Version="1.4.0-rc.3" />
+        <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.4.0-rc.3" />
+        <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.4.0-rc.3" />
+        <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.0.0-rc9.12" />
+        <PackageReference Include="OpenTelemetry.Instrumentation.EntityFrameworkCore" Version="1.0.0-beta.4" />
+        <PackageReference Include="OpenTelemetry.Instrumentation.GrpcNetClient" Version="1.0.0-rc9.12" />
+        <PackageReference Include="OpenTelemetry.Instrumentation.Http" Version="1.0.0-rc9.12" />
+        <PackageReference Include="OpenTelemetry.Instrumentation.Process" Version="1.0.0-alpha.5" />
+        <PackageReference Include="OpenTelemetry.Instrumentation.Runtime" Version="1.1.0-beta.4" />
+        <PackageReference Include="Serilog.AspNetCore" Version="6.0.1" />
+        <PackageReference Include="Serilog.Enrichers.Span" Version="3.0.0" />
+        <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
+        <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
+        <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
+        <PackageReference Include="Serilog.Sinks.Elasticsearch" Version="8.4.1" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\AgGrid.ServerSideRowModel\AgGrid.ServerSideRowModel.csproj" />
+        <ProjectReference Include="..\Pullaroo.Common\Pullaroo.Common.csproj" />
+        <ProjectReference Include="..\Pullaroo.Contracts\Pullaroo.Contracts.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Features\Roles\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\..\..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+    </ItemGroup>
+
+</Project>
