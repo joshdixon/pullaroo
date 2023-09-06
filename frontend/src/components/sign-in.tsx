@@ -12,12 +12,16 @@ export function SignIn() {
         // const codeVerifier = generateCodeVerifier();
         // const codeChallenge = await generateCodeChallenge(codeVerifier);
 
-        const authUrl = `https://github.com/login/oauth/authorize?&client_id=${clientId}`
-
+        console.log("handle login click");
+        const authUrl = `https://github.com/login/oauth/authorize?&client_id=${clientId}&scope=repo%20user`
+        console.log("url", authUrl);
         router.push(authUrl);
     };
     
     return (
-        <Button onClick={handleLoginClick}>Login with GitHub</Button>
+        <>
+             <Button onClick={handleLoginClick}>Login with GitHub</Button>
+            <button onClick={() => console.log("click")}>Log</button>
+        </>
     );
 };
