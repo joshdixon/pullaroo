@@ -20,6 +20,8 @@ using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
+using Octokit;
+
 using Orleans.Configuration;
 using Orleans.Runtime;
 using Orleans.Serialization;
@@ -40,7 +42,7 @@ builder.ConfigureMessaging((context, factoryConfigurator) =>
     factoryConfigurator.UsePublishFilter(typeof(AuthorisationPublishMiddleware<>), context);
     factoryConfigurator.UseConsumeFilter(typeof(AuthorisationConsumeMiddleware<>), context);
 });
-builder.Services.Configure<YouTubeApiSettings>(builder.Configuration.GetSection(nameof(YouTubeApiSettings)));
+builder.Services.Configure<GitHubApiSettings>(builder.Configuration.GetSection(nameof(GitHubApiSettings)));
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection(nameof(JwtSettings)));
 builder.Services.Configure<WebRtcSettings>(builder.Configuration.GetSection(nameof(WebRtcSettings)));
 builder.Services.Configure<LiveKitSettings>(builder.Configuration.GetSection(nameof(LiveKitSettings)));
@@ -138,6 +140,8 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddValidatorsFromAssemblyContaining<Program>(includeInternalTypes: true);
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddFluentValidationRulesToSwagger();
+
+builder.Services.AddSingleton<IGitHubClient>(_ => new GitHubClient(new Octokit.ProductHeaderValue(nameof(Pullaroo))));
 
 builder.Services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

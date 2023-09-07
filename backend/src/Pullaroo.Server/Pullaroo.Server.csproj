@@ -33,6 +33,7 @@
         <PackageReference Include="MongoDB.Driver" Version="2.19.1" />
         <PackageReference Include="MongoDB.Driver.Core.Extensions.OpenTelemetry" Version="1.0.0" />
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />
+        <PackageReference Include="Octokit" Version="7.1.0" />
         <PackageReference Include="OneOf" Version="3.0.255" />
         <PackageReference Include="Orleans.EventSourcing.EventStore" Version="7.1.2" />
         <PackageReference Include="Orleans.FluentResults" Version="7.1.5" />
@@ -64,13 +65,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Features\Roles\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Content Include="..\..\..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
     </ItemGroup>
+
+
 
 </Project>
